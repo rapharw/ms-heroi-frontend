@@ -9,6 +9,7 @@ import { ErrorsModule } from './errors/errors.module';
 import { UniversosModule } from './universos/universos.module';
 import { NgxBootstrapModule } from './ngx-bootstrap/ngx-bootstrap.module';
 import { SharedModule } from './shared/shared.module';
+import { HeroisModule } from './herois/herois.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     PoderesModule,
     UniversosModule,
+    HeroisModule,
     ErrorsModule,
     NgxBootstrapModule,
   ],
