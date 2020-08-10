@@ -1,0 +1,23 @@
+<app-shared-estrutura-funcionalidade titulo="Poderes" [tabelaHead]="['#', 'Descrição', '']">
+
+  <tr *ngIf="!poderes.length" slot="tabela-conteudo">
+    <td colspan="3">
+      <app-shared-no-content msg="Desculpe. Nenhum poder encontrado"></app-shared-no-content>
+    </td>
+  </tr>
+
+  <tr *ngFor="let poder of poderes" slot="tabela-conteudo">
+    <th scope="row">{{poder.id}}</th>
+    <td>{{poder.descricao}}</td>
+    <td>
+      <div class="justify-content-between ">
+        <button type="button" class="btn btn-outline-info mr-md-3">
+          Editar
+        </button>
+        <button type="button" class="btn btn-outline-danger mr-md-3" data-toggle="modal" data-target="#exampleModal">
+          Remover
+        </button>
+      </div>
+    </td>
+  </tr>
+</app-shared-estrutura-funcionalidade>
