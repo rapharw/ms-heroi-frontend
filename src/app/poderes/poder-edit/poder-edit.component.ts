@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Poder } from '../poder/poder';
+import { PoderService } from '../poder/poder.service';
 
 @Component({
   selector: 'app-poder-edit',
   templateUrl: './poder-edit.component.html',
-  styleUrls: ['./poder-edit.component.scss']
+  styleUrls: ['./poder-edit.component.scss'],
 })
 export class PoderEditComponent implements OnInit {
+  @Input() poder: Poder;
+  @Output() edited: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() { }
+  constructor(private poderService: PoderService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  public editaPoder(poder: Poder) {
+    this.poderService.editaPoder(poder).subscribe(() => this.edited.emit(true));
   }
-
 }

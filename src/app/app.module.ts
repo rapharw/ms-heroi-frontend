@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PoderesModule } from './poderes/poderes.module';
 import { ErrorsModule } from './errors/errors.module';
+import { UniversosModule } from './universos/universos.module';
+import { NgxBootstrapModule } from './ngx-bootstrap/ngx-bootstrap.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,8 +16,11 @@ import { ErrorsModule } from './errors/errors.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    SharedModule,
     PoderesModule,
+    UniversosModule,
     ErrorsModule,
+    NgxBootstrapModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

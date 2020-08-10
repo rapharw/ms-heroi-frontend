@@ -6,6 +6,8 @@ import { PoderEditComponent } from './poder-edit/poder-edit.component';
 import { PoderRemoveComponent } from './poder-remove/poder-remove.component';
 import { PoderAddComponent } from './poder-add/poder-add.component';
 import { SharedModule } from '../shared/shared.module';
+import { PoderModalComponent } from './poder-modal/poder-modal.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,14 @@ import { SharedModule } from '../shared/shared.module';
     PoderEditComponent,
     PoderRemoveComponent,
     PoderAddComponent,
+    PoderModalComponent,
   ],
-  imports: [CommonModule, HttpClientModule, SharedModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
 })
 export class PoderesModule {}

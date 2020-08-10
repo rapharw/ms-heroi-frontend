@@ -9,12 +9,21 @@ import { Poder } from '../poder/poder';
 })
 export class PoderListComponent implements OnInit {
   poderes: Poder[] = [];
+  poderSelected: Poder;
 
   constructor(private poderService: PoderService) {}
 
   ngOnInit(): void {
+    this.listaPoderes();
+  }
+
+  listaPoderes() {
     this.poderService
       .listaPoderes()
       .subscribe((poderes) => (this.poderes = poderes));
+  }
+
+  selectPoder(poder: Poder) {
+    this.poderSelected = poder;
   }
 }

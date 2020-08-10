@@ -1,1 +1,5 @@
-<p>poder-add works!</p>
+<div class="botao-cadastro">
+  <app-poder-modal titulo="Adicionar Poder" [poder]="poder" tituloBotao="Criar novo Poder"
+    (buttonClicked)="cadastraPoder($event)" btnModalColor="btn btn-primary btn-sm">
+  </app-poder-modal>
+</div>

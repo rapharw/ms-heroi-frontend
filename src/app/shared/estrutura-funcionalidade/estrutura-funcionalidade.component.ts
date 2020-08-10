@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EstruturaFuncionalidadeComponent implements OnInit {
   @Input() titulo: string = '';
-  @Input() tabelaHead: string[] = [];
+  @Input() subtitulo: string = '';
   constructor() {}
 
   ngOnInit(): void {}
