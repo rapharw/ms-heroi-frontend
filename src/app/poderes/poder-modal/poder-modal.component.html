@@ -1,0 +1,12 @@
+<app-shared-bootstrap-modal [titulo]="titulo" [tituloBotao]="tituloBotao" [btnModalColor]="btnModalColor"
+  (buttonClicked)="clickButton()">
+  <div slot="conteudo-modal">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" disabled="true" aria-describedby="basic-addon1" [value]="poder.id">
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" [disabled]="isDescricaoDisabled" aria-describedby="basic-addon1"
+        [value]="poderAux.descricao" [(ngModel)]="poderAux.descricao" #ctrl="ngModel">
+    </div>
+  </div>
+</app-shared-bootstrap-modal>

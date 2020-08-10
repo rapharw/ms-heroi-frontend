@@ -1,0 +1,36 @@
+<app-shared-estrutura-funcionalidade titulo="Universos"
+  subtitulo="Este módulo serve para realizar as operações pertinentes a manutenção de Universos.">
+
+  <div slot="tabela-conteudo">
+
+    <div class="row">
+      <div class="col-lg">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" *ngFor="let head of ['#', 'Descrição', '']">{{head}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="!universos.length">
+              <td colspan="3">
+                <app-shared-no-content msg="Desculpe. Nenhum universo encontrado"></app-shared-no-content>
+              </td>
+            </tr>
+
+            <tr *ngFor="let universo of universos">
+              <th scope="row">{{universo.id}}</th>
+              <td>{{universo.descricao}}</td>
+              <td>
+                <div class="justify-content-between ">
+                  <app-universo-edit [universo]="universo" (edited)="listaUniversos()"></app-universo-edit>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</app-shared-estrutura-funcionalidade>

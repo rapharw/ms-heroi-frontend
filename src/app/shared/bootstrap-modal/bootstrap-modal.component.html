@@ -1,0 +1,17 @@
+<button button type="button" [class]="btnModalColor" (click)="openModal(template)">{{tituloBotao}}</button>
+
+<ng-template #template>
+  <div class="modal-header" data-backdrop="static">
+    <h4 class="modal-title pull-left">{{titulo}}</h4>
+    <button type="button" class="close pull-right" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ng-content select="[slot='conteudo-modal']"></ng-content>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modalRef.hide()">Fechar</button>
+    <button type="button" class="btn btn-success" (click)="clickButton()">Confirmar alterações</button>
+  </div>
+</ng-template>
