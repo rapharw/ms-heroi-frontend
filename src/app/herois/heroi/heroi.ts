@@ -18,4 +18,8 @@ export class Heroi {
   addPoderes(poderes: Poder[]) {
     this.poderes = poderes;
   }
+
+  public isAtivo() {
+    return 'ATIVO' === this.situacao;
+  }
 }

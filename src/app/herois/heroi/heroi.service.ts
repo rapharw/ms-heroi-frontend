@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Heroi } from './heroi';
 
 const jwt =
-  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwic3ViIjoicjAwMDEiLCJhZG1pbiI6ZmFsc2UsImV4cCI6MTU5NzEwNTIzOH0.2F5kU0rh_EFyrVFJJKaeRyyv8G-9wmJZV1CzzJqfEr8';
+  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwic3ViIjoicjAwMDEiLCJhZG1pbiI6ZmFsc2UsImV4cCI6MTU5NzEwOTAxOX0.9BRxFCkWZ-JC_qBI3mnVJg0ouG7inpywAq-qBAjoU6M';
 
 const httpOptions = {
   headers: {

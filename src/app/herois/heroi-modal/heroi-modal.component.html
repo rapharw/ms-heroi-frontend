@@ -8,5 +8,15 @@
       <input type="text" class="form-control" [disabled]="isDescricaoDisabled" aria-describedby="basic-addon1"
         [value]="heroiAux.nome" [(ngModel)]="heroiAux.nome" #ctrl="ngModel">
     </div>
+    <div class="input-group mb-3">
+      <select class="custom-select" placeholder="Selecione um Universo">
+        <option *ngFor="let universo of universos" [value]="universo.id">{{universo.descricao}}</option>
+      </select>
+    </div>
+    <div class="input-group mb-3">
+      <select class="custom-select" placeholder="Selecione um Poder" multiple>
+        <option *ngFor="let poder of poderes" [value]="poder.id">{{poder.descricao}}</option>
+      </select>
+    </div>
   </div>
 </app-shared-bootstrap-modal>

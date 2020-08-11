@@ -52,7 +52,8 @@
         <p class="card-text">
           <small *ngFor="let poder of heroi.poderes"><a href="#">{{poder.descricao}}</a> | </small>
         </p>
-        <a href="#" class="card-link btn btn-outline-secondary btn-sm">Editar</a>
+        <app-heroi-edit [heroi]="heroi" (edited)="listaHerois()"></app-heroi-edit>
+        <app-heroi-situacao [heroi]="heroi" (situacaoAtualizada)="listaHerois()"></app-heroi-situacao>
       </div>
     </div>
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Universo } from './universo';
 
 const jwt =
-  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6Mywic3ViIjoidzAwMDEiLCJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTk3MTAzMjIxfQ.z-8wpnoznua2npSV5YglMvBBC9ASNY6YYSa4LSyUrfw';
+  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwic3ViIjoicjAwMDEiLCJhZG1pbiI6ZmFsc2UsImV4cCI6MTU5NzEwOTAxOX0.9BRxFCkWZ-JC_qBI3mnVJg0ouG7inpywAq-qBAjoU6M';
 
 const httpOptions = {
   headers: {
