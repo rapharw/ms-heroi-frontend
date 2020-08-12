@@ -7,17 +7,21 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TokenService } from '../token/token.service';
+import { UserService } from '../user/user.service';
 
 @Injectable({ providedIn: 'root' })
-export class AuthGuard implements CanActivate {
-  constructor(private router: Router, private tokenService: TokenService) {}
+export class AdminGuard implements CanActivate {
+  constructor(private router: Router, private userService: UserService) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (
-      this.tokenService.hasToken() &&
-      this.tokenService.validateToken().subscribe(
-        () => true,
-        () => this.router.navigate(['login'])
+      this.userService.getUserPrincipal().subscribe(
+        (user) => {
+          if (user.admin === true) return true;
+          else this.router.navigate(['denied']);
+          return false;
+        },
+        () => this.router.navigate(['denied'])
       )
     ) {
       return true;
