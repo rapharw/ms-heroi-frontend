@@ -10,6 +10,8 @@ import { UniversosModule } from './universos/universos.module';
 import { NgxBootstrapModule } from './ngx-bootstrap/ngx-bootstrap.module';
 import { SharedModule } from './shared/shared.module';
 import { HeroisModule } from './herois/herois.module';
+import { CoreModule } from './core/core.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +25,8 @@ import { HeroisModule } from './herois/herois.module';
     HeroisModule,
     ErrorsModule,
     NgxBootstrapModule,
+    CoreModule,
+    LoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

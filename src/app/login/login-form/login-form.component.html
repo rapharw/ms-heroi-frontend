@@ -1,0 +1,38 @@
+<div class="container">
+
+  <div class="wrapper fadeInDown" align="center">
+    <br /><br />
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+
+
+        <div class="fadeIn titulo">
+          <label class="titulo">Herois</label>
+        </div>
+
+        <br />
+
+        <!-- Login Form -->
+        <form autocomplete="off" [formGroup]="loginForm" class="form mt-4" (submit)="login()">
+          <fieldset>
+            <div class="form-group">
+              <input formControlName="username" class="form-control fadeIn username" placeholder="Entre com username"
+                autofocus required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+              <input type="password" formControlName="password" class="form-control fadeIn password"
+                placeholder="Senha de acesso" autofocus required autocomplete="off">
+            </div>
+            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block fadeIn button">
+              Entrar
+            </button>
+          </fieldset>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>
