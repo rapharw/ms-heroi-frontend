@@ -4,12 +4,14 @@ import { TituloFuncionalidadeComponent } from './titulo-funcionalidade/titulo-fu
 import { EstruturaFuncionalidadeComponent } from './estrutura-funcionalidade/estrutura-funcionalidade.component';
 import { NoContentComponent } from './no-content/no-content.component';
 import { BootstrapModalComponent } from './bootstrap-modal/bootstrap-modal.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const sharedComponents = [
   TituloFuncionalidadeComponent,
   EstruturaFuncionalidadeComponent,
   NoContentComponent,
   BootstrapModalComponent,
+  NavbarComponent,
 ];
 
 @NgModule({

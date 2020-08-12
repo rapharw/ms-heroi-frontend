@@ -16,6 +16,8 @@ export class HeroiAddComponent implements OnInit {
   ngOnInit(): void {}
 
   public cadastraHeroi(heroi: Heroi) {
+    console.log('cadastraHeroi');
+    console.log(heroi);
     this.heroiService
       .cadastraHeroi(heroi)
       .subscribe(() => this.saved.emit(true));

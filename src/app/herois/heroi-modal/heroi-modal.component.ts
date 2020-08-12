@@ -1,9 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+} from '@angular/core';
 import { Heroi } from '../heroi/heroi';
 import { Poder } from 'src/app/poderes/poder/poder';
 import { Universo } from '../../universos/universo/universo';
 import { PoderService } from 'src/app/poderes/poder/poder.service';
 import { UniversoService } from '../../universos/universo/universo.service';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-heroi-modal',
@@ -21,9 +29,12 @@ export class HeroiModalComponent implements OnInit {
   poderes: Poder[];
   universos: Universo[];
 
-  @Output() buttonClicked: EventEmitter<Heroi> = new EventEmitter();
+  @Output() buttonClicked: EventEmitter<any> = new EventEmitter();
+
+  heroiForm: FormGroup;
 
   constructor(
+    private formBuilder: FormBuilder,
     private poderService: PoderService,
     private universoService: UniversoService
   ) {}
@@ -32,6 +43,12 @@ export class HeroiModalComponent implements OnInit {
     this.heroiAux = new Heroi(this.heroi.id, this.heroi.nome);
     this.listaPoderes();
     this.listaUniversos();
+
+    this.heroiForm = this.formBuilder.group({
+      nome: ['', Validators.required],
+      universo: [null, Validators.required],
+      poderes: [null, Validators.required],
+    });
   }
 
   listaPoderes() {
@@ -46,7 +63,7 @@ export class HeroiModalComponent implements OnInit {
       .subscribe((universos) => (this.universos = universos));
   }
 
-  public clickButton() {
-    this.buttonClicked.emit(this.heroiAux);
+  public confirmSubmit(form: NgForm) {
+    this.buttonClicked.emit(form);
   }
 }

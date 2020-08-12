@@ -2,49 +2,34 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Heroi } from './heroi';
 
-const jwt =
-  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwic3ViIjoicjAwMDEiLCJhZG1pbiI6ZmFsc2UsImV4cCI6MTU5NzEwOTAxOX0.9BRxFCkWZ-JC_qBI3mnVJg0ouG7inpywAq-qBAjoU6M';
-
-const httpOptions = {
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${jwt}`,
-  },
-};
+const URL_API = 'http://localhost:8086';
 
 @Injectable({ providedIn: 'root' })
 export class HeroiService {
   constructor(private http: HttpClient) {}
 
   listaHerois() {
-    return this.http.get<Heroi[]>(
-      'http://localhost:8086/api/herois',
-      httpOptions
-    );
+    return this.http.get<Heroi[]>(`${URL_API}/api/herois`);
   }
 
   buscaPoder(id: number) {
-    return this.http.get<Heroi>(
-      `http://localhost:8086/api/herois/${id}`,
-      httpOptions
-    );
+    return this.http.get<Heroi>(`${URL_API}/api/herois/${id}`);
   }
 
   editaHeroi(heroi: Heroi) {
     return this.http.put<Heroi>(
-      `http://localhost:8086/api/herois/${heroi.id}`,
-      JSON.stringify(heroi),
-      httpOptions
+      `${URL_API}/api/herois/${heroi.id}`,
+      JSON.stringify(heroi)
     );
   }
 
   cadastraHeroi(heroi: Heroi) {
     heroi.id = null;
+    heroi.situacao = 'ATIVO';
 
     return this.http.post<Heroi>(
-      `http://localhost:8086/api/herois`,
-      JSON.stringify(heroi),
-      httpOptions
+      `${URL_API}/api/herois`,
+      JSON.stringify(heroi)
     );
   }
 }

@@ -12,19 +12,20 @@ import { SharedModule } from './shared/shared.module';
 import { HeroisModule } from './herois/herois.module';
 import { CoreModule } from './core/core.module';
 import { LoginModule } from './login/login.module';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    NgxBootstrapModule,
     AppRoutingModule,
     SharedModule,
     PoderesModule,
     UniversosModule,
     HeroisModule,
     ErrorsModule,
-    NgxBootstrapModule,
     CoreModule,
     LoginModule,
   ],

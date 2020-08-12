@@ -19,8 +19,6 @@ export class BootstrapModalComponent implements OnInit {
   @Input() tituloBotao: string = '';
   @Input() btnModalColor: string = '';
 
-  @Output() buttonClicked: EventEmitter<any> = new EventEmitter();
-
   constructor(private modalService: BsModalService) {}
 
   ngOnInit(): void {}
@@ -29,8 +27,7 @@ export class BootstrapModalComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
-  public clickButton() {
+  public closeModal() {
     this.modalRef.hide();
-    this.buttonClicked.emit();
   }
 }

@@ -17,11 +17,16 @@ export class AuthGuard implements CanActivate {
       this.tokenService.hasToken() &&
       this.tokenService.validateToken().subscribe(
         () => true,
-        () => this.router.navigate(['login'])
+        () => {
+          this.tokenService.removeToken();
+          this.router.navigate(['login']);
+          return false;
+        }
       )
     ) {
       return true;
     } else {
+      this.tokenService.removeToken();
       this.router.navigate(['login']);
       return false;
     }

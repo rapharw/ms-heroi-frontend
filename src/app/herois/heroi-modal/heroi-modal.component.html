@@ -1,22 +1,26 @@
-<app-shared-bootstrap-modal [titulo]="titulo" [tituloBotao]="tituloBotao" [btnModalColor]="btnModalColor"
-  (buttonClicked)="clickButton()">
+<app-shared-bootstrap-modal [titulo]="titulo" [tituloBotao]="tituloBotao" [btnModalColor]="btnModalColor">
   <div slot="conteudo-modal">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" disabled="true" aria-describedby="basic-addon1" [value]="heroi.id">
-    </div>
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" [disabled]="isDescricaoDisabled" aria-describedby="basic-addon1"
-        [value]="heroiAux.nome" [(ngModel)]="heroiAux.nome" #ctrl="ngModel">
-    </div>
-    <div class="input-group mb-3">
-      <select class="custom-select" placeholder="Selecione um Universo">
-        <option *ngFor="let universo of universos" [value]="universo.id">{{universo.descricao}}</option>
-      </select>
-    </div>
-    <div class="input-group mb-3">
-      <select class="custom-select" placeholder="Selecione um Poder" multiple>
-        <option *ngFor="let poder of poderes" [value]="poder.id">{{poder.descricao}}</option>
-      </select>
+    <form [formGroup]="heroiForm" class="form mt-4">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [value]="heroiAux.nome"
+          formControlName="nome">
+      </div>
+      <div class="input-group mb-3">
+        <select class="custom-select" placeholder="Selecione um Universo" formControlName="universo">
+          <option *ngFor="let universo of universos" [value]="universo.id">{{universo.descricao}}</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <select class="custom-select" placeholder="Selecione um Poder" multiple formControlName="poderes">
+          <option *ngFor="let poder of poderes" [value]="poder.id">{{poder.descricao}}</option>
+        </select>
+      </div>
+    </form>
+    <hr>
+    <div align="right">
+      <button type="button" [disabled]="!heroiForm.valid" class="btn btn-success block"
+        (click)="confirmSubmit(heroiForm.value)">
+        Confirmar alterações</button>
     </div>
   </div>
 </app-shared-bootstrap-modal>

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../core/auth/auth.service';
+import { TokenService } from '../../core/token/token.service';
 
 @Component({
   selector: 'app-login-form',
@@ -14,10 +15,13 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private tokenService: TokenService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.tokenService.removeToken();
+
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -29,12 +33,11 @@ export class LoginFormComponent implements OnInit {
     const password = this.loginForm.get('password').value;
 
     this.authService.authenticate(username, password).subscribe(
-      (res) => {
-        console.log(res);
+      (token) => {
+        this.tokenService.setToken(token.value);
         this.router.navigate(['herois']);
       },
       (err) => {
-        console.log(err);
         this.loginForm.reset();
       }
     );

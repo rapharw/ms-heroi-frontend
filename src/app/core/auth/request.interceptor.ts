@@ -9,14 +9,16 @@ export class RequestInterceptor implements HttpInterceptor {
   constructor(private tokenService: TokenService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    if (this.tokenService.hasToken()) {
-      const token = this.tokenService.getToken();
-      req = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`,
-          'Content-type': 'application/json',
-        },
-      });
+    if (!req.url.includes('/auth')) {
+      if (this.tokenService.hasToken()) {
+        const token = this.tokenService.getToken();
+        req = req.clone({
+          setHeaders: {
+            Authorization: `Bearer ${token}`,
+            'Content-type': 'application/json',
+          },
+        });
+      }
     }
     return next.handle(req);
   }

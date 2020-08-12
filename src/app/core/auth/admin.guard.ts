@@ -8,6 +8,7 @@ import {
 import { Observable } from 'rxjs';
 import { TokenService } from '../token/token.service';
 import { UserService } from '../user/user.service';
+import { User } from '../user/user';
 
 @Injectable({ providedIn: 'root' })
 export class AdminGuard implements CanActivate {
@@ -17,11 +18,9 @@ export class AdminGuard implements CanActivate {
     if (
       this.userService.getUserPrincipal().subscribe(
         (user) => {
-          if (user.admin === true) return true;
-          else this.router.navigate(['denied']);
-          return false;
+          this.resolveUserAdmin(user);
         },
-        () => this.router.navigate(['denied'])
+        () => this.router.navigate(['login'])
       )
     ) {
       return true;
@@ -29,5 +28,11 @@ export class AdminGuard implements CanActivate {
       this.router.navigate(['login']);
       return false;
     }
+  }
+
+  resolveUserAdmin(user: User) {
+    if (user.admin === true) return true;
+    else this.router.navigate(['denied']);
+    return false;
   }
 }
