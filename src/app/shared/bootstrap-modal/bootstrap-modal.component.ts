@@ -19,15 +19,14 @@ export class BootstrapModalComponent implements OnInit {
   @Input() tituloBotao: string = '';
   @Input() btnModalColor: string = '';
 
+  @Input() @Output() templateInOut: TemplateRef<any>;
+
   constructor(private modalService: BsModalService) {}
 
   ngOnInit(): void {}
 
   public openModal(template: TemplateRef<any>) {
+    this.templateInOut = template;
     this.modalRef = this.modalService.show(template);
-  }
-
-  public closeModal() {
-    this.modalRef.hide();
   }
 }

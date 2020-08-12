@@ -40,15 +40,36 @@ export class HeroiModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.heroiAux = new Heroi(this.heroi.id, this.heroi.nome);
+    this.heroiAux = new Heroi(
+      this.heroi.id,
+      this.heroi.nome,
+      this.heroi.universo,
+      this.heroi.dataCadastro,
+      this.heroi.situacao,
+      this.heroi.poderes
+    );
     this.listaPoderes();
     this.listaUniversos();
 
     this.heroiForm = this.formBuilder.group({
+      id: [''],
+      situacao: [''],
       nome: ['', Validators.required],
       universo: [null, Validators.required],
       poderes: [null, Validators.required],
     });
+
+    if (this.heroi !== null) {
+      this.heroiForm.setValue({
+        id: this.heroi.id,
+        situacao: this.heroi.situacao,
+        nome: this.heroi.nome,
+        universo: this.heroi.universo.id,
+        poderes: [].map.call(this.heroi.poderes, function (poder: Poder) {
+          return poder.id;
+        }),
+      });
+    }
   }
 
   listaPoderes() {

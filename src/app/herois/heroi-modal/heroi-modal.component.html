@@ -1,6 +1,10 @@
 <app-shared-bootstrap-modal [titulo]="titulo" [tituloBotao]="tituloBotao" [btnModalColor]="btnModalColor">
   <div slot="conteudo-modal">
     <form [formGroup]="heroiForm" class="form mt-4">
+      <div class="input-group">
+        <input type="hidden" class="form-control" [value]="heroiAux.id" formControlName="id">
+        <input type="hidden" class="form-control" [value]="heroiAux.situacao" formControlName="situacao">
+      </div>
       <div class="input-group mb-3">
         <input type="text" class="form-control" aria-describedby="basic-addon1" [value]="heroiAux.nome"
           formControlName="nome">

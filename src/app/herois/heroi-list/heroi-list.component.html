@@ -8,55 +8,35 @@
       </div>
     </div>
 
-    <!-- <div class="row">
-      <div class="col-lg">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col" *ngFor="let head of ['#', 'Nome', 'Universo', 'Situação', '']">{{head}}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngIf="!herois.length">
-              <td colspan="3">
-                <app-shared-no-content msg="Desculpe. Nenhum herói encontrado"></app-shared-no-content>
-              </td>
-            </tr>
-
-            <tr *ngFor="let heroi of herois">
-              <th scope="row">{{heroi.id}}</th>
-              <td>{{heroi.nome}}</td>
-              <td>{{heroi.universo.descricao}}</td>
-              <td>{{heroi.situacao}}</td>
-              <td>
-                <div class="justify-content-between ">
-                  <app-heroi-edit [heroi]="heroi" (edited)="listaHerois()"></app-heroi-edit>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div> -->
-
-
     <div *ngIf="!herois.length">
       <app-shared-no-content msg="Desculpe. Nenhum herói encontrado"></app-shared-no-content>
     </div>
 
-    <div class="card" style="width: 18rem;" *ngFor="let heroi of herois">
-      <div class="card-body">
-        <h5 class="card-title">{{heroi.nome}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{heroi.universo.descricao}}</h6>
-        <hr>
-        <p class="card-text">
-          <small *ngFor="let poder of heroi.poderes"><a href="#">{{poder.descricao}}</a> | </small>
-        </p>
-        <app-heroi-edit [heroi]="heroi" (edited)="listaHerois()"></app-heroi-edit>
-        <app-heroi-situacao [heroi]="heroi" (situacaoAtualizada)="listaHerois()"></app-heroi-situacao>
+    <div class="row">
+      <div *ngFor="let heroi of herois" class="col-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{heroi.nome}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{heroi.universo.descricao}} | </h6>
+            <hr>
+            <p class="card-text">
+              <small *ngFor="let poder of heroi.poderes"><a href="#">{{poder.descricao}}</a> | </small>
+            </p>
+            <p class="card-text">
+              <small>{{heroi.situacao}}</small>
+              <br>
+              <small>Cadastrado em {{heroi.dataCadastro}}</small>
+            </p>
+            <p class="card-text">
+
+            </p>
+
+            <app-heroi-edit [heroi]="heroi" (edited)="listaHerois()"></app-heroi-edit>
+            <app-heroi-situacao [heroi]="heroi" (situacaoAtualizada)="listaHerois()"></app-heroi-situacao>
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
 
 </app-shared-estrutura-funcionalidade>
