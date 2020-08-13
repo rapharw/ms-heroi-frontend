@@ -1,6 +1,8 @@
-<button *ngIf="heroi.situacao === 'INATIVO'" type="button" class="card-link btn btn-success btn-sm mr-md-3">
+<button *ngIf="heroi.situacao === 'INATIVO'" type="button" class="card-link btn btn-success btn-sm mr-md-3"
+  (click)="atualizaSituacao('ATIVO')">
   Ativar
 </button>
-<button *ngIf="heroi.situacao !== 'INATIVO'" type="button" class="card-link btn btn-danger btn-sm mr-md-3">
+<button *ngIf="heroi.situacao !== 'INATIVO'" type="button" class="card-link btn btn-danger btn-sm mr-md-3"
+  (click)="atualizaSituacao('INATIVO')">
   Inativar
 </button>

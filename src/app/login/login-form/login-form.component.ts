@@ -29,15 +29,19 @@ export class LoginFormComponent implements OnInit {
   }
 
   login() {
+    this.tokenService.removeToken();
+
     const username = this.loginForm.get('username').value;
     const password = this.loginForm.get('password').value;
 
     this.authService.authenticate(username, password).subscribe(
       (token) => {
+        // console.log(token);
         this.tokenService.setToken(token.value);
         this.router.navigate(['herois']);
       },
       (err) => {
+        // console.log(err);
         this.loginForm.reset();
       }
     );

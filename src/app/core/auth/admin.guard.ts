@@ -18,21 +18,22 @@ export class AdminGuard implements CanActivate {
     if (
       this.userService.getUserPrincipal().subscribe(
         (user) => {
-          this.resolveUserAdmin(user);
+          if (user.admin === true) {
+            return true;
+          } else {
+            this.router.navigate(['denied']);
+            return false;
+          }
         },
-        () => this.router.navigate(['login'])
+        () => {
+          this.router.navigate(['login']);
+          return false;
+        }
       )
     ) {
       return true;
     } else {
-      this.router.navigate(['login']);
       return false;
     }
-  }
-
-  resolveUserAdmin(user: User) {
-    if (user.admin === true) return true;
-    else this.router.navigate(['denied']);
-    return false;
   }
 }

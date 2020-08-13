@@ -19,6 +19,8 @@ export class RequestInterceptor implements HttpInterceptor {
           },
         });
       }
+    } else {
+      this.tokenService.removeToken();
     }
     return next.handle(req);
   }

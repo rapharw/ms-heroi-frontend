@@ -20,7 +20,8 @@
             <h6 class="card-subtitle mb-2 text-muted">{{heroi.universo.descricao}} | </h6>
             <hr>
             <p class="card-text">
-              <small *ngFor="let poder of heroi.poderes"><a href="#">{{poder.descricao}}</a> | </small>
+              <small *ngFor="let poder of heroi.poderes"><a
+                  class='card-item-heroi-poder-descricao'>{{poder.descricao}}</a> | </small>
             </p>
             <p class="card-text">
               <small>{{heroi.situacao}}</small>
