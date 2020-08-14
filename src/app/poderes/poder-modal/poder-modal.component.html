@@ -8,5 +8,9 @@
       <input type="text" class="form-control" [disabled]="isDescricaoDisabled" aria-describedby="basic-addon1"
         [value]="poderAux.descricao" [(ngModel)]="poderAux.descricao" #ctrl="ngModel">
     </div>
+    <div align="right">
+      <button type="button" class="btn btn-success" (click)="clickButton()">
+        Confirmar alterações</button>
+    </div>
   </div>
 </app-shared-bootstrap-modal>

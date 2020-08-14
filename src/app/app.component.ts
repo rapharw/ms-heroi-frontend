@@ -8,10 +8,5 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private tokenService: TokenService, private router: Router) {}
-
-  logout() {
-    this.tokenService.removeToken();
-    this.router.navigate(['login']);
-  }
+  constructor() {}
 }

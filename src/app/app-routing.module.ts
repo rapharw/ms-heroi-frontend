@@ -8,10 +8,15 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
 import { AuthGuard } from './core/auth/auth.guard';
 import { AdminGuard } from './core/auth/admin.guard';
 import { AccessDeniedComponent } from './errors/access-denied/access-denied.component';
+import { HomeComponent } from './login/home/home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
-  { path: 'herois', component: HeroiListComponent, canActivate: [AuthGuard] },
+  {
+    path: 'herois',
+    component: HeroiListComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'universos',
     component: UniversoListComponent,
@@ -22,7 +27,11 @@ const routes: Routes = [
     component: PoderListComponent,
     canActivate: [AuthGuard, AdminGuard],
   },
-  { path: 'denied', component: AccessDeniedComponent },
+  {
+    path: 'denied',
+    component: AccessDeniedComponent,
+  },
+  { path: 'home', component: HomeComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

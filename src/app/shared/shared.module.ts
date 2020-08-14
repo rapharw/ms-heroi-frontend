@@ -5,6 +5,7 @@ import { EstruturaFuncionalidadeComponent } from './estrutura-funcionalidade/est
 import { NoContentComponent } from './no-content/no-content.component';
 import { BootstrapModalComponent } from './bootstrap-modal/bootstrap-modal.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '@angular/router';
 
 const sharedComponents = [
   TituloFuncionalidadeComponent,
@@ -16,7 +17,7 @@ const sharedComponents = [
 
 @NgModule({
   declarations: [sharedComponents],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [sharedComponents],
 })
 export class SharedModule {}

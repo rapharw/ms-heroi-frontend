@@ -38,6 +38,7 @@ export class LoginFormComponent implements OnInit {
       (token) => {
         // console.log(token);
         this.tokenService.setToken(token.value);
+
         this.router.navigate(['herois']);
       },
       (err) => {
